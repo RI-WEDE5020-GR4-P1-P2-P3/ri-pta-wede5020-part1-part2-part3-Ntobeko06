@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Laura's Sweet Delight</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #e63946;
+            --primary-pink: #ff758f;
+            --accent-yellow: #ffb703;
+            --accent-green: #38b000;
+            --accent-purple: #7209b7;
+            --text-dark: #2b2d42;
+            --bg-light: #fff8f8;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-red);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-pink), var(--accent-purple));
+            color: var(--white);
+            text-align: center;
+            padding: 3.5rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            border-top: 6px solid var(--primary-red);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card:nth-child(2) { border-top-color: var(--accent-yellow); }
+        .service-card:nth-child(3) { border-top-color: var(--accent-green); }
+        .service-card:nth-child(4) { border-top-color: var(--accent-purple); }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-service {
+            display: inline-block;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-service:hover {
+            background-color: #d62839;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Laura's Sweet Delight</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#" class="active">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Services</h1>
+        <p>From nationwide online candy delivery to custom event catering across South Africa!</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="services-grid">
+            
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-icon"></div>
+                    <h2>E-Commerce Candy Shop</h2>
+                    <p>Browse and order from our wide selection of colorful, high-quality, and affordable candies—including gummies, chocolates, and sour treats.</p>
+                </div>
+                <a href="#" class="btn-service">Explore Shop</a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-icon"></div>
+                    <h2>Seasonal & Event Campaigns</h2>
+                    <p>Customized candy packages and themed offers tailored for summer events, birthday parties, weddings, and special celebrations.</p>
+                </div>
+                <a href="contact.html" class="btn-service">Inquire for Events</a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-icon"></div>
+                    <h2>Nationwide Delivery</h2>
+                    <p>Fast, reliable delivery across South Africa and beyond, replacing manual orders with a seamless, secure cart and checkout process.</p>
+                </div>
+                <a href="index.html" class="btn-service">Order Online</a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div>
+                    <div class="service-icon"></div>
+                    <h2>Dedicated Customer Support</h2>
+                    <p>Instant support via WhatsApp and online inquiry forms to ensure all your order questions and catering requests are handled promptly.</p>
+                </div>
+                <a href="contact.html" class="btn-service">Contact Support</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Laura's Sweet Delight. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

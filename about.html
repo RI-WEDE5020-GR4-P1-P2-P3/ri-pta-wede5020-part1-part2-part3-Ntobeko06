@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Laura's Sweet Delight</title>
+    <!-- Google Fonts: Poppins for body/headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red:#e63946;
+            --primary-pink: #ff758f;
+            --accent-yellow: #ffb703;
+            --accent-green: #38b000;
+            --accent-purple: #7209b7;
+            --text-dark: #2b2d42;
+            --bg-light: #fff8f8;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-red);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-pink), var(--accent-purple));
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Brand Story Section */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+
+        .story-text h2 {
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .story-badge {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .story-image-placeholder {
+            background-color: #f0f0f0;
+            border: 3px dashed var(--primary-pink);
+            border-radius: 12px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Mission & Vision Cards */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            border-top: 6px solid var(--primary-red);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .card.vision {
+            border-top-color: var(--accent-green);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-section {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none; /* Simplification for small screens */
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Laura's Sweet Delight</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#" class="active">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About Laura's Sweet Delight</h1>
+        <p>Bringing joy through colorful, nostalgic sweets across South Africa!</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Brand Story Section -->
+        <section class="story-section">
+            <div class="story-text">
+                <span class="story-badge">Established 2021</span>
+                <h2>Our Story</h2>
+                <p>Laura's Sweet Delight was founded in 2021 by a passionate young South African lady who remains, at heart, a ultimate candy enthusiast.</p>
+                <p>Driven by a love for vibrant flavors and happy memories, our journey started with a simple vision: to create a space that delivers colorful, nostalgic sweets directly to fellow candy lovers. From gummies and chocolates to sour treats and seasonal specials, we curate treats that bring smiles to faces of all age.</p>
+            </div>
+            <div class="story-image-placeholder"> 
+            <img src ="C:\Users\ntobe\OneDrive\WEDE5020\Laura's Sweet delight website\images\Logo.jpeg" width="200" height="200"
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="mv-grid">
+            <div class="card mission">
+                <h3>Our Mission</h3>
+                <p>To spread happiness by offering high-quality, fun, and affordable candies for every celebration and everyday craving.</p>
+            </div>
+            <div class="card vision">
+                <h3>Our Vision</h3>
+                <p>To become the leading online candy destination in South Africa and beyond.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Laura's Sweet Delight. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

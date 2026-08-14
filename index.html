@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura's Sweet Delight - Online Candy Destination</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #e63946;
+            --primary-pink: #ff758f;
+            --accent-yellow: #ffb703;
+            --accent-green: #38b000;
+            --accent-purple: #7209b7;
+            --text-dark: #2b2d42;
+            --bg-light: #fff8f8;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-red);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-pink), var(--accent-purple));
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            opacity: 0.95;
+        }
+
+        .btn-cta {
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+            padding: 0.9rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            background-color: #ffa000;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            margin-bottom: 2.5rem;
+            font-weight: 800;
+        }
+
+        /* Featured Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 180px;
+            background-color: #f8f9fa;
+            border: 2px dashed var(--primary-pink);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        /* Banner Section: Events/Campaigns */
+        .campaign-banner {
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-green));
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .campaign-banner h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .campaign-banner p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Laura's Sweet Delight</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>Bringing Joy Through Colorful, Nostalgic Sweets!</h1>
+        <p>Discover South Africa's favorite destination for high-quality, fun, and affordable candies.</p>
+        <a href="#" class="btn-cta">Shop Candies Now</a>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Featured In-Stock Candies Section -->
+        <h2 class="section-title">Featured Sweets</h2>
+        <div class="product-grid"> 
+            
+            <!-- Category 1: Gummies -->
+            <div class="product-card">
+                <div class="product-image"><img src="C:\Users\ntobe\OneDrive\WEDE5020\Laura's Sweet delight website\images\Gummy bears.jpeg" width="200" height="180" alt=""></div>
+                <h3 class="product-title">Juicy Gummies</h3>
+                <p class="product-desc">Gummy bears, rings, and classic sweet treats.</p>
+                <a href="#" class="btn-secondary">View Category</a>
+            </div>
+
+            <!-- Category 2: Sour Candies -->
+            <div class="product-card">
+                <div class="product-image"><img src="C:\Users\ntobe\OneDrive\WEDE5020\Laura's Sweet delight website\images\Sour Candy.jpeg" width="300" height="180" alt=""></div>
+                <h3 class="product-title">Sour Candies</h3>
+                <p class="product-desc">Tangy belts, sour worms, and mouth-watering bites.</p>
+                <a href="#" class="btn-secondary">View Category</a>
+            </div>
+
+            <!-- Category 3: Chocolates -->
+            <div class="product-card">
+                <div class="product-image"><img src="C:\Users\ntobe\OneDrive\WEDE5020\Laura's Sweet delight website\images\assorted chocy.jpeg" width="200" height="180" alt=""></div>
+                <h3 class="product-title">Rich Chocolates</h3>
+                <p class="product-desc">Decadent chocolate options for every cocoa lover.</p>
+                <a href="#" class="btn-secondary">View Category</a>
+            </div>
+
+            <!-- Category 4: Seasonal Specials -->
+            <div class="product-card">
+                <div class="product-image"><img src="\Users\ntobe\OneDrive\WEDE5020\Laura's Sweet delight website\images\summer buffet.jpeg" width="200" height="180" alt=""></div>
+                <h3 class="product-title">Seasonal Specials</h3>
+                <p class="product-desc">Limited-edition mixes for parties, holidays, and events.</p>
+                <a href="#" class="btn-secondary">View Category</a>
+            </div>
+
+        </div>
+
+        <!-- Seasonal & Events Banner -->
+        <section class="campaign-banner">
+            <h2>Planning a Party, Wedding, or Summer Event?</h2>
+            <p>Make your special occasions sweeter with our custom candy displays, party packs, and seasonal event catering[cite: 1].</p>
+            <a href="contact.html" class="btn-cta">Book Event Catering</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Laura's Sweet Delight. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
