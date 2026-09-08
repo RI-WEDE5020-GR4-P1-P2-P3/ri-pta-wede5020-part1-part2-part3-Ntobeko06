@@ -3,269 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Laura's Sweet Delight</title>
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Laura's Sweet Delight | Services & Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-red: #e63946;
-            --primary-pink: #ff758f;
-            --accent-yellow: #ffb703;
-            --accent-green: #38b000;
-            --accent-purple: #7209b7;
-            --text-dark: #2b2d42;
-            --bg-light: #fff8f8;
+            --primary-red: #ff4b5c;
+            --accent-pink: #ff75a0;
+            --accent-yellow: #fce38a;
+            --bg-light: #fffafb;
+            --text-dark: #2d4059;
             --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3, .logo { font-family: 'Comic Neue', cursive; font-weight: 700; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 1.8rem; color: var(--primary-red); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-red); }
 
-        /* Navigation Bar */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--white); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+        .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+        
+        .controls { margin: 15px 0; display: flex; flex-direction: column; gap: 5px; }
+        .controls select { padding: 8px; border-radius: 6px; border: 1px solid #ccc; }
+        .price-display { font-size: 1.2rem; font-weight: 700; color: var(--primary-red); margin: 10px 0; }
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
+        .btn { background-color: var(--primary-red); color: var(--white); padding: 10px 20px; border: none; border-radius: 20px; font-weight: 600; cursor: pointer; width: 100%; }
+        
+        /* Layout split for shop and cart */
+        .layout-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 20px; }
+        @media(max-width: 768px) { .layout-grid { grid-template-columns: 1fr; } }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-red);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary-red);
-        }
-
-        /* Hero Banner */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-pink), var(--accent-purple));
-            color: var(--white);
-            text-align: center;
-            padding: 3.5rem 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            font-weight: 400;
-            opacity: 0.95;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-            border-top: 6px solid var(--primary-red);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card:nth-child(2) { border-top-color: var(--accent-yellow); }
-        .service-card:nth-child(3) { border-top-color: var(--accent-green); }
-        .service-card:nth-child(4) { border-top-color: var(--accent-purple); }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h2 {
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 0.8rem;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-service {
-            display: inline-block;
-            background-color: var(--primary-red);
-            color: var(--white);
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-service:hover {
-            background-color: #d62839;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--text-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 1.5rem;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
+        .cart-box, .bulk-box { background: var(--white); padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); height: fit-content; }
+        .cart-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .cart-table th, .cart-table td { padding: 8px; text-align: left; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        
+        .form-group { margin-bottom: 10px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; }
+        footer { background: var(--text-dark); color: var(--white); text-align: center; padding: 25px 20px; margin-top: 60px; }
     </style>
 </head>
 <body>
-
-    <!-- Navigation -->
     <header>
-        <nav>
-            <a href="index.html" class="logo">Laura's Sweet Delight</a>
+        <div class="nav-container">
+            <a href="index.html" class="logo"> Laura's Sweet Delight</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#" class="active">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html" class="active">Services & Shop</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Our Services</h1>
-        <p>From nationwide online candy delivery to custom event catering across South Africa!</p>
-    </section>
-
-    <!-- Main Content -->
-    <main class="container">
-        <div class="services-grid">
-            
-            <!-- Service 1 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-icon"></div>
-                    <h2>E-Commerce Candy Shop</h2>
-                    <p>Browse and order from our wide selection of colorful, high-quality, and affordable candies—including gummies, chocolates, and sour treats.</p>
-                </div>
-                <a href="#" class="btn-service">Explore Shop</a>
-            </div>
-
-            <!-- Service 2 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-icon"></div>
-                    <h2>Seasonal & Event Campaigns</h2>
-                    <p>Customized candy packages and themed offers tailored for summer events, birthday parties, weddings, and special celebrations.</p>
-                </div>
-                <a href="contact.html" class="btn-service">Inquire for Events</a>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-icon"></div>
-                    <h2>Nationwide Delivery</h2>
-                    <p>Fast, reliable delivery across South Africa and beyond, replacing manual orders with a seamless, secure cart and checkout process.</p>
-                </div>
-                <a href="index.html" class="btn-service">Order Online</a>
-            </div>
-
-            <!-- Service 4 -->
-            <div class="service-card">
-                <div>
-                    <div class="service-icon"></div>
-                    <h2>Dedicated Customer Support</h2>
-                    <p>Instant support via WhatsApp and online inquiry forms to ensure all your order questions and catering requests are handled promptly.</p>
-                </div>
-                <a href="contact.html" class="btn-service">Contact Support</a>
-            </div>
-
         </div>
-    </main>
+    </header>
+<link rel="stylesheet" href="styles.css">
+    <div class="container">
+        <h2>Our Sweets & Order Services</h2>
+        <p>Choose from our in-stock items or submit a request for event bulk ordering!</p>
 
-    <!-- Footer -->
+        <div class="layout-grid">
+            <!-- Left Side: Dynamic Shop Products -->
+            <div>
+                <h3 style="margin-bottom: 15px;">In-Stock Sweets</h3>
+                <div class="grid-3" id="shop-container">
+                    <!-- Products will render here -->
+                </div>
+            </div>
+
+            <!-- Right Side: Live Cart & Bulk Order Request -->
+            <div>
+                <!-- Cart Section -->
+                <div class="cart-box">
+                    <h3>Your Cart 🛒</h3>
+                    <br>
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Size</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-rows">
+                            <!-- Dynamic Cart Items -->
+                        </tbody>
+                    </table>
+                    <div id="empty-msg" style="color: #777;">Your cart is empty.</div>
+                    <hr style="margin: 10px 0;"><br>
+                    <div><strong>Total Price: <span id="cart-total" style="color:var(--primary-red)">R0.00</span></strong></div><br>
+                    <button class="btn" onclick="checkout()">Place Order</button>
+                </div>
+
+                <!-- Bulk Orders Section -->
+                <div class="bulk-box" style="margin-top: 25px;">
+                    <h3>Bulk Orders for Events</h3>
+                    <p style="font-size: 0.85rem; color: #555; margin-bottom: 10px;">Weddings, parties, and corporate functions.</p>
+                    
+                    <form onsubmit="handleBulk(event)">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option>Wedding</option>
+                                <option>Birthday Party</option>
+                                <option>Corporate Event</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="3" placeholder="Tell us about the quantity/date required"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="background-color: var(--text-dark);">Request Bulk Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Laura's Sweet Delight. All rights reserved.</p>
+        <p>&copy; 2026 Laura's Sweet Delight. All Rights Reserved. | Laurassweetdelight.co.za</p>
     </footer>
 
+    <script>
+        const products = [
+            { id: 1, name: "Fruity Gummies", image: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?auto=format&fit=crop&w=400&q=80" },
+            { id: 2, name: "Sour Belts & Rings", image: "https://www.desertcart.co.za/products/634738097-sour-gummy-candy-mix-2-pound-pack-chewy-gummies-for-candy-buffets-goodie-bags-dessert-decorating-belts-peach-rings-watermelon-wedges-worms-bears-bulk-gummies" },
+            { id: 3, name: " Chocolates", image: "https://www.google.com/imgres?q=chocolates&imgurl=https%3A%2F%2Fgeldhofchocolates.com%2Fwp-content%2Fuploads%2F2023%2F03%2FAssorted-Chocolate-Boxes-Slider.png&imgrefurl=https%3A%2F%2Fgeldhofchocolates.com%2F&docid=fisxWuV-4PtL9M&tbnid=Z0lruWQZuM3RJM&vet=12ahUKEwjejpnw19WWAxUPVEEAHWTPGEcQnPAOegUIwgEQAA..i&w=1920&h=1080&hcb=2&ved=2ahUKEwjejpnw19WWAxUPVEEAHWTPGEcQnPAOegUIwgEQAA" },
+            { id: 4, name: "Seasonal Party Mix", image: "https://images.unsplash.com/photo-1532117892860-5e574f26b553?auto=format&fit=crop&w=400&q=80" }
+        ];
+
+        const prices = {
+            "Small": 45,
+            "Medium": 70,
+            "Large": 100
+        };
+
+        let cart = [];
+
+        function renderShop() {
+            const container = document.getElementById('shop-container');
+            container.innerHTML = '';
+
+            products.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${p.image}" alt="${p.name}">
+                    <h4>${p.name}</h4>
+                    <p style="font-size: 0.8rem; color: green;">🟢 In Stock</p>
+                    <div class="controls">
+                        <label style="font-size: 0.8rem;">Select Size:</label>
+                        <select id="size-${p.id}" onchange="updatePriceLabel(${p.id})">
+                            <option value="Small">Small (R45.00)</option>
+                            <option value="Medium">Medium (R70.00)</option>
+                            <option value="Large">Large (R100.00)</option>
+                        </select>
+                    </div>
+                    <div class="price-display" id="price-${p.id}">R45.00</div>
+                    <button class="btn" onclick="addToCart(${p.id})">Add to Cart</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function updatePriceLabel(pId) {
+            const size = document.getElementById(`size-${pId}`).value;
+            document.getElementById(`price-${pId}`).innerText = `R${prices[size]}.00`;
+        }
+
+        function addToCart(pId) {
+            const p = products.find(prod => prod.id === pId);
+            const size = document.getElementById(`size-${pId}`).value;
+            const price = prices[size];
+
+            const existing = cart.find(item => item.id === pId && item.size === size);
+            if(existing) {
+                existing.qty++;
+            } else {
+                cart.push({ id: pId, name: p.name, size: size, price: price, qty: 1 });
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const tbody = document.getElementById('cart-rows');
+            const emptyMsg = document.getElementById('empty-msg');
+            tbody.innerHTML = '';
+
+            if(cart.length === 0) {
+                emptyMsg.style.display = 'block';
+            } else {
+                emptyMsg.style.display = 'none';
+            }
+
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.size}</td>
+                    <td>${item.qty}</td>
+                    <td>R${itemTotal}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('cart-total').innerText = `R${total}.00`;
+        }
+
+        function checkout() {
+            if(cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            alert("Thank you! Your order has been placed.");
+            cart = [];
+            updateCart();
+        }
+
+        function handleBulk(e) {
+            e.preventDefault();
+            alert("Bulk order inquiry submitted successfully!");
+            e.target.reset();
+        }
+
+        renderShop();
+    </script>
 </body>
 </html>
