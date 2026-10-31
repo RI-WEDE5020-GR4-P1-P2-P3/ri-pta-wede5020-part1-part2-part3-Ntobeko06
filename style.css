@@ -1,0 +1,456 @@
+/* ==========================================
+   1. CSS RESET & BASE STYLES
+   ========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Color Scheme */
+    --primary-red: #ff4b5c;
+    --primary-hover: #e03e4f;
+    --accent-pink: #ff75a0;
+    --accent-yellow: #fce38a;
+    --accent-green: #95e1d3;
+    --bg-light: #fffafb;
+    --text-dark: #2d4059;
+    --text-muted: #666666;
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+
+    /* Typography Scale */
+    --font-heading: 'Comic Neue', cursive, sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --fs-h1: 2.5rem;
+    --fs-h2: 1.8rem;
+    --fs-h3: 1.3rem;
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+
+    /* Layout & Visual Decorative Defaults */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --radius-main: 0.75rem; /* 12px */
+    --radius-btn: 1.5rem;  /* 24px */
+    --transition-fast: 0.2s ease-in-out;
+}
+
+html {
+    font-size: 100%; /* 16px default base */
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   2. TYPOGRAPHY
+   ========================================== */
+h1, h2, h3, h4, .logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p {
+    margin-bottom: 0.75rem;
+}
+
+/* ==========================================
+   3. NAVIGATION & HEADER LAYOUT (Flexbox)
+   ========================================== */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-container {
+    max-width: 75rem; /* 1200px */
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.75rem;
+    color: var(--primary-red);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+/* Interactive States */
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--primary-red);
+    outline: none;
+}
+
+.nav-links a:active,
+.nav-links a.active {
+    color: var(--primary-red);
+    border-bottom: 2px solid var(--primary-red);
+}
+
+/* ==========================================
+   4. CONTAINER & GRID LAYOUTS (CSS Grid)
+   ========================================== */
+.container {
+    max-width: 75rem;
+    width: 90%;
+    margin: 2rem auto;
+    flex: 1; /* Sticky footer calculation */
+}
+
+/* Hero Section Decorative Styling */
+.hero {
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow));
+    border-radius: var(--radius-main);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-light);
+}
+
+.hero h1 {
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Multi-Column Layouts for Desktop */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+    gap: 1.5rem;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1.25rem;
+}
+
+/* ==========================================
+   5. CARDS, FORMS & BUTTONS
+   ========================================== */
+.card, .cart-box, .bulk-box, .gallery-item {
+    background-color: var(--white);
+    border-radius: var(--radius-main);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover, .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card img, .gallery-item img {
+    width: 100%;
+    height: 11.25rem; /* 180px */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons and Pseudo-classes */
+.btn {
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-btn);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 75, 92, 0.3);
+}
+
+.btn:focus {
+    outline: 3px solid var(--accent-pink);
+    outline-offset: 2px;
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Form Styling & Focus States */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea,
+.controls select {
+    width: 100%;
+    padding: 0.625rem;
+    border-radius: 0.375rem;
+    border: 1px solid #ccc;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus,
+.controls select:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 3px rgba(255, 75, 92, 0.2);
+}
+
+/* Dynamic Price Label */
+.price-display {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin: 0.5rem 0;
+}
+
+/* Cart Table Styles */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.cart-table th, 
+.cart-table td {
+    padding: 0.625rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--fs-small);
+}
+
+.cart-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* ==========================================
+   6. FOOTER STYLING
+   ========================================== */
+footer {
+    background-color: var(--text-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    margin-top: auto;
+    font-size: var(--fs-small);
+}
+
+/* ==========================================
+   7. RESPONSIVE BREAKPOINTS (Media Queries)
+   ========================================== */
+
+/* Tablet Breakpoint (Up to 992px) */
+@media screen and (max-width: 992px) {
+    :root {
+        --fs-h1: 2.1rem;
+        --fs-h2: 1.5rem;
+    }
+
+    .layout-grid {
+        grid-template-columns: 1fr; /* Switch to single-column stacking */
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Breakpoint (Up to 600px) */
+@media screen and (max-width: 600px) {
+    :root {
+        --fs-h1: 1.75rem;
+        --fs-h2: 1.3rem;
+        --fs-body: 0.9375rem;
+    }
+
+    .nav-container {
+        flex-direction: column; /* Stack logo and menu links vertically */
+        gap: 0.75rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr; /* Force 1 item per row on mobile */
+    }
+
+    .btn {
+        width: 100%; /* Touch-friendly wide buttons */
+    }
+
+    .cart-table th, .cart-table td {
+        padding: 0.375rem;
+    }
+    /* ==========================================
+   ENQUIRY PAGE & INTERACTIVE ELEMENTS STYLING
+   ========================================== */
+
+/* FAQ Accordion Styling */
+.accordion-item {
+    background-color: var(--white);
+    border-radius: var(--radius-main);
+    margin-bottom: 0.75rem;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: box-shadow var(--transition-fast);
+}
+
+.accordion-item:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    background-color: var(--white);
+    border: none;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: color var(--transition-fast);
+}
+
+.accordion-header:hover,
+.accordion-header:focus {
+    color: var(--primary-red);
+    outline: none;
+}
+
+.accordion-body {
+    padding: 1rem 1.25rem;
+    display: none;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background-color: #fafbfc;
+}
+
+.accordion-body.active {
+    display: block;
+}
+
+/* Interactive Map Container */
+#map {
+    height: 18.75rem; /* 300px */
+    width: 100%;
+    border-radius: var(--radius-main);
+    margin-top: 0.75rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-light);
+}
+
+/* Form Validation Error Messages */
+.error-message {
+    color: var(--primary-red);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+    display: none;
+}
+
+/* Dynamic Calculation Response Box */
+.response-box {
+    background-color: #f0fff4;
+    border: 1px solid #9ae6b4;
+    color: #22543d;
+    padding: 1rem;
+    border-radius: var(--radius-main);
+    margin-top: 1.25rem;
+    display: none;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-light);
+}
+}

@@ -21,7 +21,13 @@ Based on lecturer feedback from Part 1, the following improvements and correctio
 * **Separation of Concerns:** Removed all inline/internal CSS `<style>` blocks from HTML pages and created a centralized external stylesheet (`styles.css`).
 * **Enhanced E-Commerce Logic:** Standardized pricing ranges based on potion sizes (Small: R45, Medium: R70, Large: R100) and added a dedicated bulk ordering request form for events.
 * **Accessibility Fixes:** Added explicit `alt` tags to all product images, labeled all form inputs correctly, and added focus indicator states for keyboard navigation.
-
+### Part 3 Changelog
+- Added `enquiry.html` for service quotes, sponsorship, and dynamic pricing calculations.
+- Added interactive Leaflet.js store location map and FAQ accordions
+- Integrated full lightbox modal viewing on `gallery.html`.
+- Implemented Regex validation for phone numbers and email fields on enquiry and contact forms.
+- Created SEO optimization assets (`robots.txt`, `sitemap.xml`, canonical URLs, and meta tags).
+- Deployed live solution to Netlify/GitHub Pages.
 ---
 
 ## 2. CSS Visual & Responsive Design Implementation (Part 2)
@@ -84,3 +90,11 @@ Google Fonts: Poppins & Comic Neue font families (fonts.google.com)
 
 MDN Web Docs: CSS Grid Layout & Flexible Box Module guides (developer.mozilla.org)
 
+1. **Google Fonts** (2026) *Poppins and Comic Neue Font Families*. Available at: https://fonts.google.com (Accessed: October 2026).
+2. **Leaflet.js** (2026) *An Open-Source JavaScript Library for Mobile-Friendly Interactive Maps*. Available at: https://unpkg.com/leaflet@1.9.4/dist/leaflet.js (Accessed: October 2026).
+3. **MDN Web Docs** (2026) *CSS Grid Layout Module*. Mozilla Developer Network. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout (Accessed: October 2026).
+4. **MDN Web Docs** (2026) *Client-Side Form Validation*. Mozilla Developer Network. Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_forms_through_JavaScript (Accessed: October 2026).
+5. **OpenStreetMap** (2026) *Map Data & Tile Layer Services*. Available at: https://www.openstreetmap.org (Accessed: October 2026).
+6. **Sitemaps.org** (2026) *Sitemap XML Protocol Standard*. Available at: https://www.sitemaps.org/protocol.html (Accessed: October 2026).
+7. **Unsplash** (2026) *High-Resolution Royalty-Free Confectionery Photography*. Available at: https://unsplash.com (Accessed: October 2026).
+8. **W3C** (2026) *HTML5 & CSS3 Web Standards and Accessibility Guidelines*. World Wide Web Consortium. Available at: https://www.w3.org/TR/html52/ (Accessed: October 2026).
