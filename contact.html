@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laura's Sweet Delight | Contact Us</title>
+    <meta name="description" content="Contact Laura's Sweet Delight team for queries, support, or direct messages compiled to laurassweetdelight@gmail.com.">
+    <meta name="keywords" content="contact candy shop, support, South Africa sweets address, email Laura's sweet delight">
+    <link rel="canonical" href="https://laurassweetdelight.co.za/contact.html">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         :root {
             --primary-red: #ff4b5c;
@@ -48,52 +52,105 @@
                 <li><a href="services.html">Services & Shop</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="about.html">About Us</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </div>
     </header>
-<link rel="stylesheet" href="styles.css">
+
     <div class="container">
         <h2>Contact & Support</h2><br>
 
         <div class="grid-2">
             <div class="card">
                 <h3>Get in Touch</h3><br>
-                <p><strong>Email Support:</strong>laurassweetdelight@gmail.com </p><br>
-                <p><strong>Location:</strong> South Africa <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.477041503443!2d28.088279183670846!3d-25.655476619194843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebfd0b9be148d39%3A0x5f8a98093b8aa13!2s85%20Smithers%20St%2C%20The%20Orchards%2C%20Akasia%2C%200201!5e0!3m2!1sen!2sza!4v1788549825615!5m2!1sen!2sza" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></p><br>
-                <p>Have questions about seasonal specials, sweet preferences, or store details? Send us a message!</p>
+                <p><strong>Email Support:</strong> laurassweetdelight@gmail.com</p><br>
+                <p><strong>Location:</strong> 85 Smithers St, The Orchards, Akasia, South Africa</p><br>
+                <p>Have questions about seasonal specials, sweet preferences, or store details? Send us a message directly through the form!</p>
             </div>
 
             <div class="card">
-                <h3>Inquiry Form</h3><br>
-                <form onsubmit="handleSubmit(event)">
+                <h3>General Contact Form</h3><br>
+                <form id="contactForm" onsubmit="handleContactSubmit(event)" novalidate>
                     <div class="form-group">
-                        <label>Your Name</label>
-                        <input type="text" required>
+                        <label for="contactName">Your Name *</label>
+                        <input type="text" id="contactName" required placeholder="Full Name">
+                        <div class="error-message" id="contactNameError">Please enter your name.</div>
                     </div>
                     <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" required>
+                        <label for="contactEmail">Email Address *</label>
+                        <input type="email" id="contactEmail" required placeholder="yourname@domain.co.za">
+                        <div class="error-message" id="contactEmailError">Please enter a valid email address.</div>
                     </div>
                     <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="4" required></textarea>
+                        <label for="contactSubject">Subject / Topic *</label>
+                        <select id="contactSubject" required>
+                            <option value="">-- Select Subject --</option>
+                            <option value="General Question">General Question</option>
+                            <option value="Feedback">Store Feedback</option>
+                            <option value="Order Support">Order Support</option>
+                        </select>
+                        <div class="error-message" id="contactSubjectError">Please select a subject.</div>
                     </div>
-                    <button type="submit" class="btn">Send Message</button>
+                    <div class="form-group">
+                        <label for="contactMsg">Message *</label>
+                        <textarea id="contactMsg" rows="4" required placeholder="Write your message here..."></textarea>
+                        <div class="error-message" id="contactMsgError">Please enter a message.</div>
+                    </div>
+                    <button type="submit" class="btn">Compile & Send Email</button>
                 </form>
+                <div id="contactResponse" class="response-box"></div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Laura's Sweet Delight. All Rights Reserved. | Laurassweetdelight.co.za</p>
+        <p>&copy; 2026 Laura's Sweet Delight. All Rights Reserved. | laurassweetdelight.co.za</p>
     </footer>
 
     <script>
-        function handleSubmit(e) {
+        function handleContactSubmit(e) {
             e.preventDefault();
-            alert("Thank you! Your message has been sent to Laura's Sweet Delight support.");
-            e.target.reset();
+            let isValid = true;
+            
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value;
+            const msg = document.getElementById('contactMsg').value.trim();
+            
+            document.querySelectorAll('#contactForm .error-message').forEach(el => el.style.display = 'none');
+
+            if (!name) {
+                document.getElementById('contactNameError').style.display = 'block';
+                isValid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('contactEmailError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (!subject) {
+                document.getElementById('contactSubjectError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (!msg) {
+                document.getElementById('contactMsgError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                const responseBox = document.getElementById('contactResponse');
+                responseBox.innerHTML = `<strong>Message Compiled Successfully!</strong><br>
+                    <strong>Recipient:</strong> laurassweetdelight@gmail.com<br>
+                    <strong>From:</strong> ${name} (${email})<br>
+                    <strong>Subject:</strong> ${subject}<br>
+                    Thank you! Your email has been prepared and sent.`;
+                responseBox.style.display = 'block';
+                e.target.reset();
+            }
         }
     </script>
 </body>

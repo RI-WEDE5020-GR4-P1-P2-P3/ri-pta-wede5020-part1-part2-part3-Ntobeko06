@@ -4,76 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service & Product Enquiry | Laura's Sweet Delight</title>
-    <meta name="description" content="Enquire about custom sweet orders, event catering, sponsorship, and bulk discounts with Laura's Sweet Delight in South Africa.">
-    <meta name="keywords" content="candy enquiry, bulk sweets quote, party catering, sweet delight pricing, South Africa candies">
-    <link rel="canonical" href="http://Laurassweetdelight.co.za/enquiry.html">
-
-    <!-- Leaflet.js Map CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Main External Stylesheet -->
+    <!-- Other links... -->
     <link rel="stylesheet" href="styles.css">
-    
     <style>
-        /* Specific enhancements matching your other page cards and forms */
-        .accordion-item {
-            background: var(--white, #fff);
-            border-radius: var(--radius-main, 12px);
-            margin-bottom: 12px;
-            box-shadow: var(--shadow-light, 0 4px 15px rgba(0, 0, 0, 0.08));
-            border: 1px solid var(--border-color, #e2e8f0);
-            overflow: hidden;
+        :root {
+            --primary-red: #ff4b5c;
+            --bg-light: #fffafb;
+            --text-dark: #2d4059;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
         }
-        .accordion-header {
-            width: 100%;
-            text-align: left;
-            padding: 1rem 1.25rem;
-            background: var(--white, #fff);
-            border: none;
-            font-weight: 600;
-            color: var(--text-dark, #2d4059);
-            cursor: pointer;
-            font-family: var(--font-body, 'Poppins', sans-serif);
-        }
-        .accordion-header:hover {
-            color: var(--primary-red, #ff4b5c);
-        }
-        .accordion-body {
-            padding: 1rem 1.25rem;
-            display: none;
-            border-top: 1px solid var(--border-color, #e2e8f0);
-            font-size: 0.95rem;
-            color: var(--text-muted, #666);
-        }
-        .accordion-body.active {
-            display: block;
-        }
-        #map {
-            height: 18.75rem;
-            border-radius: var(--radius-main, 12px);
-            margin-top: 1rem;
-            border: 1px solid var(--border-color, #e2e8f0);
-            box-shadow: var(--shadow-light, 0 4px 15px rgba(0, 0, 0, 0.08));
-        }
-        .error-message {
-            color: var(--primary-red, #ff4b5c);
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-            display: none;
-        }
-        .response-box {
-            background-color: #f0fff4;
-            border: 1px solid #9ae6b4;
-            color: #22543d;
-            padding: 1rem;
-            border-radius: var(--radius-main, 12px);
-            margin-top: 1.25rem;
-            display: none;
-            font-size: 0.95rem;
-        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3, .logo { font-family: 'Comic Neue', cursive; font-weight: 700; }
+
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 1.8rem; color: var(--primary-red); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-red); }
+
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .card { background: var(--white); border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; }
+        
+        .btn { background-color: var(--primary-red); color: var(--white); padding: 10px 20px; border: none; border-radius: 20px; font-weight: 600; cursor: pointer; }
+        footer { background: var(--text-dark); color: var(--white); text-align: center; padding: 25px 20px; margin-top: 60px; }
     </style>
+    
 </head>
 <body>
-    <!-- Sticky Header matching your navigation layout -->
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo"> Laura's Sweet Delight</a>
@@ -88,7 +56,6 @@
         </div>
     </header>
 
-    <!-- Main Container ensuring identical background (--bg-light) and padding -->
     <main class="container">
         <h2>Service, Bulk & Sponsorship Enquiry</h2>
         <p>Complete the form below to get an instant cost calculation and availability check for your order or event.</p>
@@ -143,11 +110,10 @@
                     <button type="submit" class="btn" style="width: 100%; margin-top: 0.5rem;">Calculate & Submit Enquiry</button>
                 </form>
 
-                <!-- Dynamic Processing Response Box -->
                 <div id="enquiryResponse" class="response-box"></div>
             </div>
 
-            <!-- Right Column: Interactive Elements (FAQ Accordion & Map) -->
+            <!-- Right Column: Interactive Elements (FAQ Accordion & Leaflet Map) -->
             <div>
                 <h3>Frequently Asked Questions</h3>
                 <br>
@@ -160,97 +126,15 @@
                     <div class="accordion-body">Yes! We deliver across South Africa via standard courier services within 3–5 working days.</div>
                 </div>
 
-                <h3 style="margin-top: 2rem;">Our Store Location</h3>
-                <div id="map"></div>
+                
             </div>
         </div>
     </main>
 
-    <!-- Footer matching all other pages -->
     <footer>
-        <p>&copy; 2026 Laura's Sweet Delight. All Rights Reserved. | Laurassweetdelight.co.za</p>
+        <p>&copy; 2026 Laura's Sweet Delight. All Rights Reserved. | laurassweetdelight.co.za</p>
     </footer>
 
-    <!-- Leaflet JS Map Script -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        // Interactive Accordion Toggle
-        function toggleAccordion(btn) {
-            const body = btn.nextElementSibling;
-            body.classList.toggle('active');
-        }
-
-        // Interactive Map Initialization (Johannesburg/Gauteng region)
-        const map = L.map('map').setView([-26.2041, 28.0473], 12);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-        L.marker([-26.2041, 28.0473]).addTo(map)
-            .bindPopup('<b>Laura\'s Sweet Delight HQ</b><br>Johannesburg, South Africa')
-            .openPopup();
-
-        // Form Validation & Dynamic Cost Response Processing
-        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            let isValid = true;
-            const name = document.getElementById('enquiryName').value.trim();
-            const email = document.getElementById('enquiryEmail').value.trim();
-            const phone = document.getElementById('enquiryPhone').value.trim();
-            const type = document.getElementById('enquiryType').value;
-            const qty = parseInt(document.getElementById('enquiryQty').value) || 1;
-
-            // Reset error displays
-            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
-
-            // Name Validation
-            if (name.length < 2) {
-                document.getElementById('nameError').style.display = 'block';
-                isValid = false;
-            }
-
-            // Email Regex Validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('emailError').style.display = 'block';
-                isValid = false;
-            }
-
-            // SA Phone Regex Validation (10 digits starting with 0)
-            const phoneRegex = /^0[0-9]{9}$/;
-            if (!phoneRegex.test(phone)) {
-                document.getElementById('phoneError').style.display = 'block';
-                isValid = false;
-            }
-
-            // Select Validation
-            if (!type) {
-                document.getElementById('typeError').style.display = 'block';
-                isValid = false;
-            }
-
-            if (isValid) {
-                // Calculate Dynamic Cost based on selections
-                let itemPrice = 0;
-                if (type === 'small') itemPrice = 45;
-                else if (type === 'medium') itemPrice = 70;
-                else if (type === 'large') itemPrice = 100;
-                else if (type === 'event') itemPrice = 60; // Bulk package average estimate rate
-
-                const totalCost = itemPrice * qty;
-                const responseBox = document.getElementById('enquiryResponse');
-                
-                if (type === 'sponsor') {
-                    responseBox.innerHTML = `<strong>Thank you, ${name}!</strong><br>Your sponsorship/volunteer inquiry has been logged. Our coordinator will contact you at ${email} shortly.`;
-                } else {
-                    responseBox.innerHTML = `<strong>Enquiry Estimate Processed Successfully!</strong><br>
-                        Customer: ${name}<br>
-                        Estimated Cost: <strong>R${totalCost}.00</strong> for ${qty} portion(s).<br>
-                        Status: 🟢 Stock Available. A confirmation summary has been sent to ${email}.`;
-                }
-                responseBox.style.display = 'block';
-            }
-        });
-    </script>
+    
 </body>
 </html>
